@@ -1,5 +1,9 @@
 var courts = require('../');
 
-courts.zuständigesGericht({plz:'20144'}, function(){
+courts.venue({plz:'20144'}, function(){
+  console.log(arguments);
+});
+
+courts.authorities({ort1:'Hamburg'}, function(){
   console.log(arguments);
 });

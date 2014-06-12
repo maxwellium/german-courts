@@ -3,7 +3,9 @@ var
   Parse           = require('./parse'),
 
   url             = 'http://www.justizadressen.nrw.de/og.php',
-  defaultParams   = {},
+  defaultParams   = {
+    'gerausw' : 'ALL'
+  },
 
   extendToNew = function(){
     var result = {};
@@ -38,23 +40,23 @@ var
   };
 
 /**
- * zuständigesGericht
+ * zuständiges Gericht
  * @param  {object}   params ort, plz
  * @param  {Function} callback [description]
  * @return {array}
  */
-module.exports.zuständigesGericht = function(params, callback){
+module.exports.venue = function(params, callback){
   params.suchen='+Absenden+';
   return request(params, callback);
 };
 
 /**
- * BehördeIn
+ * zuständige Behörden und Institutionen
  * @param  {object}   params ort1, plz1
  * @param  {Function} callback [description]
  * @return {array}
  */
-module.exports.BehördeIn = function (params, callback){
+module.exports.authorities = function (params, callback){
   params.suchen1='+Absenden+';
   return request(params, callback);
 };
