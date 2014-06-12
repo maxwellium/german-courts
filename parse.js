@@ -107,6 +107,8 @@ var parseZeile = function(zeile){
       institution.anschrift.Postanschrift = '';
     }
 
+    delete institution.anschrift.all;
+
   } else {
     institution.anschrift = '';
   }
@@ -123,6 +125,8 @@ var parseZeile = function(zeile){
     institution.kontakt.URL = Extract.url( institution.kontakt.all );
     institution.kontakt.EMail = Extract.mail( institution.kontakt.all );
     institution.kontakt.XJustizId = Extract.xjustiz( institution.kontakt.all );
+
+    delete institution.kontakt.all;
   }else{
     institution.kontakt = '';
   }
