@@ -120,9 +120,9 @@ var parseZeile = function(zeile){
     };
     institution.kontakt.Telefon = Extract.telefon( institution.kontakt.all );
     institution.kontakt.Fax = Extract.fax( institution.kontakt.all );
-    institution.kontakt.URL = Extract.fax( institution.kontakt.url );
-    institution.kontakt.EMail = Extract.fax( institution.kontakt.mail );
-    institution.kontakt.XJustizId = Extract.fax( institution.kontakt.xjustiz );
+    institution.kontakt.URL = Extract.url( institution.kontakt.all );
+    institution.kontakt.EMail = Extract.mail( institution.kontakt.all );
+    institution.kontakt.XJustizId = Extract.xjustiz( institution.kontakt.all );
   }else{
     institution.kontakt = '';
   }
