@@ -6,6 +6,7 @@ var
   },
 
   extract = function(regex, string){
+    regex.lastIndex = 0;
     var match = regex.exec(string);
 
     if( match && (match.length > 1) ){

@@ -1,13 +1,18 @@
 var
   Ent     = require('ent'),
-  Extract = require('extract'),
+  Extract = require('./extract'),
 
 
   regex   = {
     zeilen      : /<tr class="adbtr[12]"[^<>]*?(title="\s*(.*)\s*")? ?>\s*([\d\D]+?)\s*<\/tr>/g,
     bezeichnung : /<td class="adbtd\d" headers="(adbgericht|adbfachger)">\s*([\d\D]+?)\s*<\/td>/,
     anschrift   : /<td class="adbtd\d" headers="(adbgeranschr|adbfganschr)">\s*([\d\D]+?)\s*<\/td>/,
-    kontakt     : /<td class="adbtd\d" headers="(adbgerkontakt|adbfgkontakt)">\s*([\d\D]+?)\s*<\/td>/
+    kontakt     : /<td class="adbtd\d" headers="(adbgerkontakt|adbfgkontakt)">\s*([\d\D]+?)\s*<\/td>/,
+    zusatz      : {
+      clean : [
+        /<span class="adbkleiner">.+?<\/span>/g
+      ]
+    }
   };
 
 module.exports = function(html){
@@ -15,6 +20,8 @@ module.exports = function(html){
     results = [],
     zeile, institution;
 
+
+  regex.zeilen.lastIndex = 0;
 
   while( zeile = regex.zeilen.exec(html) ){
     institution = parseZeile(zeile);
@@ -33,12 +40,14 @@ var parseZeile = function(zeile){
     return false;
   }
 
-  if( zeile[2].length ){
+  if( zeile[2] && zeile[2].length ){
     institution.typ = Ent.decode( zeile[2] );
   }
 
+  regex.bezeichnung.lastIndex = 0;
+
   institution.bezeichnung = regex.bezeichnung.exec(zeile[3]);
-  if( 3 !== institution.bezeichnung.length ){
+  if( (null === institution.bezeichnung) || (3 !== institution.bezeichnung.length) ){
     return false;
   }
   if( 'adbfachger' === institution.bezeichnung[1] ){
@@ -48,7 +57,11 @@ var parseZeile = function(zeile){
   if( 1 < institution.bezeichnung.length ){
     institution.zusatz = [].concat( institution.bezeichnung );
     institution.zusatz.shift();
-    institution.zusatz = Ent.decode( institution.zusatz.join('\n') ).trim();
+    institution.zusatz = institution.zusatz.join('\n');
+    regex.zusatz.clean.forEach(function(clean){
+      institution.zusatz = institution.zusatz.replace(clean, '');
+    });
+    institution.zusatz = Ent.decode( institution.zusatz ).trim();
   }
   institution.bezeichnung = Ent.decode( institution.bezeichnung[0] ).trim();
 
