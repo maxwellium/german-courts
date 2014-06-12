@@ -2,7 +2,12 @@ var
   regex = {
     plz     : /(\d{4,5}) .+$/,
     ort     : /\d{4,5} (.+)$/,
-    adresse : /^(.+)(?=, \d{4,5}.+)/
+    adresse : /^(.+)(?=, \d{4,5}.+)/,
+    telefon : /Telefon:\s*([0-9\s-]+)/,
+    fax     : /Fax:\s*([0-9\s-]+)/,
+    url     : /URL:\s*<.*?>([\w\d.\-\/?=&%]+)/,
+    mail    : /Mail:\s*<.*?>([\w\d.\-@]+)/,
+    xjustiz : /XJustiz-ID:\s*([\w\d]+)/
   },
 
   extract = function(regex, string){
@@ -16,8 +21,8 @@ var
     }
   };
 
-module.exports = {
-  adresse : extract.bind( undefined, regex.adresse ),
-  ort     : extract.bind( undefined, regex.ort ),
-  plz     : extract.bind( undefined, regex.plz )
-};
+module.exports = {};
+
+Object.keys(regex).forEach(function(key){
+  module.exports[key] = extract.bind( undefined, regex[key] );
+});
