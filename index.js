@@ -7,33 +7,33 @@ var
     'gerausw' : 'ALL'
   },
 
-  extendToNew = function(){
+  extendToNew = function() {
     var result = {};
     var args = Array.prototype.slice.call(arguments, 0);
-    args.forEach(function(argument){
-      Object.keys(argument).forEach(function(key){
+    args.forEach(function(argument) {
+      Object.keys(argument).forEach(function(key) {
         result[key] = argument[key];
       });
     });
     return result;
   },
 
-  request = function (params, callback){
+  request = function (params, callback) {
     var results;
 
     params = extendToNew(defaultParams, params);
 
-    return Request({uri: url, qs: params}, function (error, response, body){
-      if( !error && response.statusCode == 200 ){
+    return Request({uri: url, qs: params}, function (error, response, body) {
+      if ( !error && response.statusCode == 200 ) {
 
         results = Parse(body);
 
-        if( false === results ){
+        if ( false === results ) {
           callback('format error');
-        }else{
+        } else {
           callback( null, results );
         }
-      }else{
+      } else {
         callback('http error');
       }
     });
@@ -45,18 +45,21 @@ var
  * @param  {Function} callback [description]
  * @return {array}
  */
-module.exports.venue = function(params, callback){
+module.exports.venue = function(params, callback) {
   params.suchen='+Absenden+';
   return request(params, callback);
 };
 
 /**
  * zuständige Behörden und Institutionen
- * @param  {object}   params ort1, plz1
+ * @param  {object}   params ort, plz
  * @param  {Function} callback [description]
  * @return {array}
  */
-module.exports.authorities = function (params, callback){
+module.exports.authorities = function (params, callback) {
+  if ( params.ort ) { params.ort1 = params.ort; }
+  if ( params.plz ) { params.plz1 = params.plz; }
   params.suchen1='+Absenden+';
+
   return request(params, callback);
 };
