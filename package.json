@@ -1,0 +1,33 @@
+{
+  "name": "german-courts",
+  "version": "0.1.0",
+  "description": "queries federal German databases for courts and authorities with local jurisdiction",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxwellium/german-courts.git"
+  },
+  "keywords": [
+    "local",
+    "jurisdiction",
+    "German",
+    "courts",
+    "authorities"
+  ],
+  "author": "maxwellium",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maxwellium/german-courts/issues"
+  },
+  "homepage": "https://github.com/maxwellium/german-courts",
+  "dependencies": {
+    "ent": "^2.0.0",
+    "request": "^2.36.0"
+  }
+}
