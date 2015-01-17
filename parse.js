@@ -1,5 +1,5 @@
 var
-  Ent     = require('ent'),
+  HE     = require('he'),
   Extract = require('./extract'),
 
 
@@ -45,7 +45,7 @@ var parseZeile = function(zeile) {
   }
 
   if ( zeile[2] && zeile[2].length ) {
-    institution.typ = Ent.decode( zeile[2] );
+    institution.typ = HE.decode( zeile[2] );
   }
 
   regex.bezeichnung.lastIndex = 0;
@@ -67,9 +67,9 @@ var parseZeile = function(zeile) {
     regex.zusatz.clean.forEach(function(clean) {
       institution.zusatz = institution.zusatz.replace(clean, '');
     });
-    institution.zusatz = Ent.decode( institution.zusatz ).trim();
+    institution.zusatz = HE.decode( institution.zusatz ).trim();
   }
-  institution.bezeichnung = Ent.decode( institution.bezeichnung[0] ).trim();
+  institution.bezeichnung = HE.decode( institution.bezeichnung[0] ).trim();
 
   regex.anschrift.all.lastIndex = 0;
   institution.anschrift = regex.anschrift.all.exec(zeile[3]);
@@ -89,7 +89,7 @@ var parseZeile = function(zeile) {
 
     if ( institution.anschrift.Lieferanschrift && (2 === institution.anschrift.Lieferanschrift.length) ) {
       institution.anschrift.Lieferanschrift = {
-        all: Ent.decode( institution.anschrift.Lieferanschrift[1] ).trim()
+        all: HE.decode( institution.anschrift.Lieferanschrift[1] ).trim()
       };
       institution.anschrift.Lieferanschrift.PLZ = Extract.plz( institution.anschrift.Lieferanschrift.all );
       institution.anschrift.Lieferanschrift.Ort = Extract.ort( institution.anschrift.Lieferanschrift.all );
@@ -100,7 +100,7 @@ var parseZeile = function(zeile) {
 
     if ( institution.anschrift.Postanschrift && (2 === institution.anschrift.Postanschrift.length) ) {
       institution.anschrift.Postanschrift = {
-        all: Ent.decode( institution.anschrift.Postanschrift[1] ).trim()
+        all: HE.decode( institution.anschrift.Postanschrift[1] ).trim()
       };
       institution.anschrift.Postanschrift.PLZ = Extract.plz( institution.anschrift.Postanschrift.all );
       institution.anschrift.Postanschrift.Ort = Extract.ort( institution.anschrift.Postanschrift.all );
@@ -120,7 +120,7 @@ var parseZeile = function(zeile) {
   institution.kontakt = regex.kontakt.exec( zeile[3] );
   if ( institution.kontakt && (3 === institution.kontakt.length) ) {
     institution.kontakt = {
-      all: Ent.decode( institution.kontakt[2] ).trim()
+      all: HE.decode( institution.kontakt[2] ).trim()
     };
     institution.kontakt.Telefon = Extract.telefon( institution.kontakt.all );
     institution.kontakt.Fax = Extract.fax( institution.kontakt.all );
