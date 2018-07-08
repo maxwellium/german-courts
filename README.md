@@ -5,68 +5,275 @@ This module queries the Orts- und Gerichtsverzeichnis (database of German courts
 
 ----
 ## usage
-    var courts = require('german-courts');
+````typescript
+import { competentCourt } from 'german-courts';
 
-    courts.venue({plz:'20144'}, function(errors, courts) {
-      console.log(JSON.stringify(courts, null, 2));
-    });
+competentCourt('hamburg', '20144').then(r => console.log(JSON.stringify(r, null, 2)));
+````
+or in js ;)
+````javascript
+const { competentCourt } = require('german-courts');
+
+competentCourt('hamburg', '20144').then(r => console.log(JSON.stringify(r, null, 2)));
+````
 
 which will output
-
-    [{
-      "typ": "Amtsgericht",
-      "bezeichnung": "Amtsgericht Hamburg",
-      "gerichtstyp": "Amtsgericht",
-      "anschrift": {
-        "Lieferanschrift": {
-          "all": "Sievekingplatz 1, 20355 Hamburg",
-          "PLZ": "20355",
-          "Ort": "Hamburg",
-          "Adresse": "Sievekingplatz 1"
-        },
-        "Postanschrift": {
-          "all": "Postfach 30 01 21, 20348 Hamburg",
-          "PLZ": "20348",
-          "Ort": "Hamburg",
-          "Postfach": "30 01 21"
-        }
+````json
+[
+  {
+    "typ": "Amtsgericht",
+    "bezeichnung": "Amtsgericht Hamburg",
+    "gerichtstyp": "Amtsgericht",
+    "fachgericht": false,
+    "zusatz": "",
+    "anschrift": {
+      "Lieferanschrift": {
+        "all": "",
+        "PLZ": "",
+        "Ort": "",
+        "Adresse": ""
       },
-      "kontakt": {
-        "Telefon": "040 428 28-0",
-        "Fax": "040 42843-4318",
-        "URL": "www.amtsgericht.hamburg.de",
-        "EMail": "",
-        "XJustizId": "K1101"
+      "Postanschrift": {
+        "all": "",
+        "PLZ": "",
+        "Ort": "",
+        "Postfach": ""
       }
     },
-    {
-      "typ": "Landgericht",
-      "bezeichnung": "Landgericht Hamburg",
-      "gerichtstyp": "Landgericht",
-      "zusatz": "Kammer für Handelssachen ist eingerichtet.",
-      "anschrift": {
-        "Lieferanschrift": {
-          "all": "Sievekingplatz 1, 20355 Hamburg",
-          "PLZ": "20355",
-          "Ort": "Hamburg",
-          "Adresse": "Sievekingplatz 1"
-        },
-        "Postanschrift": {
-          "all": "20348 Hamburg",
-          "PLZ": "20348",
-          "Ort": "Hamburg",
-          "Postfach": ""
-        }
+    "kontakt": {
+      "Telefon": "040 428 28-0",
+      "Fax": "040 42843-4318",
+      "URL": "",
+      "EMail": "",
+      "XJustizId": "K1101Elektronischer"
+    }
+  },
+  {
+    "typ": "Landgericht",
+    "bezeichnung": "Landgericht Hamburg Kammer für Handelssachen ist eingerichtet.",
+    "gerichtstyp": "Landgericht",
+    "fachgericht": false,
+    "zusatz": "",
+    "anschrift": {
+      "Lieferanschrift": {
+        "all": "",
+        "PLZ": "",
+        "Ort": "",
+        "Adresse": ""
       },
-      "kontakt": {
-        "Telefon": "040 428 28-0",
-        "Fax": "040 428 43-4318",
-        "URL": "www.landgericht.hamburg.de",
-        "EMail": "poststelle@lg.justiz.hamburg.de",
-        "XJustizId": "K1100"
+      "Postanschrift": {
+        "all": "",
+        "PLZ": "20348",
+        "Ort": "Hamburg",
+        "Postfach": ""
       }
-    }, ...]
-
+    },
+    "kontakt": {
+      "Telefon": "040 428 28-0",
+      "Fax": "040 428 43-4318",
+      "URL": "",
+      "EMail": "",
+      "XJustizId": "K1100Elektronischer"
+    }
+  },
+  {
+    "typ": "Staatsanwaltschaft",
+    "bezeichnung": "Staatsanwaltschaft Hamburg",
+    "gerichtstyp": "Staatsanwaltschaft",
+    "fachgericht": false,
+    "zusatz": "",
+    "anschrift": {
+      "Lieferanschrift": {
+        "all": "",
+        "PLZ": "",
+        "Ort": "",
+        "Adresse": ""
+      },
+      "Postanschrift": {
+        "all": "",
+        "PLZ": "",
+        "Ort": "",
+        "Postfach": ""
+      }
+    },
+    "kontakt": {
+      "Telefon": "040 42828-0",
+      "Fax": "040 42798-1002",
+      "URL": "",
+      "EMail": "",
+      "XJustizId": "K1100SDer"
+    }
+  },
+  {
+    "typ": "Oberlandesgericht",
+    "bezeichnung": "Hanseatisches Oberlandesgericht",
+    "gerichtstyp": "Oberlandesgericht",
+    "fachgericht": false,
+    "zusatz": "",
+    "anschrift": {
+      "Lieferanschrift": {
+        "all": "",
+        "PLZ": "",
+        "Ort": "",
+        "Adresse": ""
+      },
+      "Postanschrift": {
+        "all": "",
+        "PLZ": "20348",
+        "Ort": "Hamburg",
+        "Postfach": ""
+      }
+    },
+    "kontakt": {
+      "Telefon": "040 428 28-0",
+      "Fax": "040 42843-4097",
+      "URL": "",
+      "EMail": "",
+      "XJustizId": "K1000Elektronischer"
+    }
+  },
+  {
+    "typ": "Generalstaatsanwaltschaft",
+    "bezeichnung": "Generalstaatsanwaltschaft Hamburg",
+    "gerichtstyp": "Generalstaatsanwaltschaft",
+    "fachgericht": false,
+    "zusatz": "",
+    "anschrift": {
+      "Lieferanschrift": {
+        "all": "",
+        "PLZ": "",
+        "Ort": "",
+        "Adresse": ""
+      },
+      "Postanschrift": {
+        "all": "",
+        "PLZ": "",
+        "Ort": "",
+        "Postfach": ""
+      }
+    },
+    "kontakt": {
+      "Telefon": "040 42843-1710",
+      "Fax": "040 42798-1900",
+      "URL": "",
+      "EMail": "",
+      "XJustizId": "K1000SDer"
+    }
+  },
+  {
+    "typ": "Arbeitsgericht",
+    "bezeichnung": "Arbeitsgericht Hamburg  Rechtszug",
+    "gerichtstyp": "Arbeitsgericht",
+    "fachgericht": true,
+    "zusatz": "",
+    "anschrift": {
+      "Lieferanschrift": {
+        "all": "",
+        "PLZ": "",
+        "Ort": "",
+        "Adresse": ""
+      },
+      "Postanschrift": {
+        "all": "",
+        "PLZ": "",
+        "Ort": "",
+        "Postfach": ""
+      }
+    },
+    "kontakt": {
+      "Telefon": "040 42863-5665",
+      "Fax": "040 4279-62804",
+      "URL": "",
+      "EMail": "",
+      "XJustizId": "K6055Der"
+    }
+  },
+  {
+    "typ": "Finanzgericht",
+    "bezeichnung": "Finanzgericht Hamburg  Rechtszug",
+    "gerichtstyp": "Finanzgericht",
+    "fachgericht": true,
+    "zusatz": "",
+    "anschrift": {
+      "Lieferanschrift": {
+        "all": "",
+        "PLZ": "",
+        "Ort": "",
+        "Adresse": ""
+      },
+      "Postanschrift": {
+        "all": "",
+        "PLZ": "",
+        "Ort": "",
+        "Postfach": ""
+      }
+    },
+    "kontakt": {
+      "Telefon": "040 42828-0",
+      "Fax": "040 427982-777",
+      "URL": "",
+      "EMail": "",
+      "XJustizId": "K6079Der"
+    }
+  },
+  {
+    "typ": "Sozialgericht",
+    "bezeichnung": "Sozialgericht Hamburg  Rechtszug",
+    "gerichtstyp": "Sozialgericht",
+    "fachgericht": true,
+    "zusatz": "",
+    "anschrift": {
+      "Lieferanschrift": {
+        "all": "",
+        "PLZ": "",
+        "Ort": "",
+        "Adresse": ""
+      },
+      "Postanschrift": {
+        "all": "",
+        "PLZ": "",
+        "Ort": "",
+        "Postfach": ""
+      }
+    },
+    "kontakt": {
+      "Telefon": "040 42828-0",
+      "Fax": "040 427-3-10232",
+      "URL": "",
+      "EMail": "",
+      "XJustizId": "K6083Der"
+    }
+  },
+  {
+    "typ": "Verwaltungsgericht",
+    "bezeichnung": "Verwaltungsgericht Hamburg  Rechtszug",
+    "gerichtstyp": "Verwaltungsgericht",
+    "fachgericht": true,
+    "zusatz": "",
+    "anschrift": {
+      "Lieferanschrift": {
+        "all": "",
+        "PLZ": "",
+        "Ort": "",
+        "Adresse": ""
+      },
+      "Postanschrift": {
+        "all": "",
+        "PLZ": "",
+        "Ort": "",
+        "Postfach": ""
+      }
+    },
+    "kontakt": {
+      "Telefon": "040 42828-0",
+      "Fax": "040 42843-7219",
+      "URL": "",
+      "EMail": "",
+      "XJustizId": "K6052Der"
+    }
+  }
+]
+````
 
 
 

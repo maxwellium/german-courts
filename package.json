@@ -1,8 +1,9 @@
 {
   "name": "german-courts",
-  "version": "1.0.0",
-  "description": "German courts - deutsche Gerichte =============",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "German courts - deutsche Gerichte",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
   "directories": {
     "test": "test"
   },
@@ -21,8 +22,8 @@
     "type": "git",
     "url": "git+https://github.com/maxwellium/german-courts.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "maxwellium",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/maxwellium/german-courts/issues"
   },

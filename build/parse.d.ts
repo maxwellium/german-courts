@@ -26,4 +26,4 @@ export declare class Institution {
         XJustizId: string;
     };
 }
-export declare function parse(html: string): (boolean | Institution)[];
+export declare function parse(html: string): Institution[];
