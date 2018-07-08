@@ -1,33 +1,35 @@
 {
   "name": "german-courts",
-  "version": "0.1.0",
-  "description": "queries federal German databases for courts and authorities with local jurisdiction",
+  "version": "1.0.0",
+  "description": "German courts - deutsche Gerichte =============",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check": "gts check",
+    "clean": "gts clean",
+    "compile": "tsc -p .",
+    "compile:w": "tsc -w -p .",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run check"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/maxwellium/german-courts.git"
+    "url": "git+https://github.com/maxwellium/german-courts.git"
   },
-  "keywords": [
-    "local",
-    "jurisdiction",
-    "German",
-    "courts",
-    "authorities"
-  ],
-  "author": "maxwellium",
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/maxwellium/german-courts/issues"
   },
-  "homepage": "https://github.com/maxwellium/german-courts",
-  "dependencies": {
-    "he": "^0.5.0",
-    "request": "^2.36.0"
+  "homepage": "https://github.com/maxwellium/german-courts#readme",
+  "devDependencies": {
+    "@types/node": "^10.5.2",
+    "gts": "^0.7.1",
+    "typescript": "~2.8.0"
   }
 }
