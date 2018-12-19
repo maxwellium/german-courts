@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const request_1 = require("./request");
-const parse_1 = require("./parse");
+const request_1 = require("./lib/request");
+const seite_1 = require("./parts/seite");
 async function competentCourt(ort, plz) {
-    const url = request_1.competentCourtURL(ort, plz), html = await request_1.request(url);
-    return parse_1.parse(html);
+    const url = request_1.competentCourtURL(ort, plz);
+    return await seite_1.parseSeiten(url);
 }
 exports.competentCourt = competentCourt;
 //# sourceMappingURL=index.js.map

@@ -1,9 +1,10 @@
-import { competentCourtURL, request } from './request';
-import { parse, Institution } from './parse';
+import { competentCourtURL } from './lib/request';
+import { parseSeiten, Seite } from './parts/seite';
 
 
-export async function competentCourt(ort?: string, plz?: string): Promise<Institution[]> {
-  const url = competentCourtURL(ort, plz),
-    html = await request(url);
-  return parse(html);
+export async function competentCourt( ort?: string, plz?: string ): Promise<Seite[]> {
+
+  const url = competentCourtURL( ort, plz );
+
+  return await parseSeiten( url );
 }

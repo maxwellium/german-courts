@@ -29,8 +29,12 @@
   },
   "homepage": "https://github.com/maxwellium/german-courts#readme",
   "devDependencies": {
+    "@types/cheerio": "^0.22.10",
     "@types/node": "^10.5.2",
     "gts": "^0.7.1",
     "typescript": "~2.8.0"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2"
   }
 }
