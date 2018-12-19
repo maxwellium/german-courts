@@ -8,271 +8,778 @@ This module queries the Orts- und Gerichtsverzeichnis (database of German courts
 ````typescript
 import { competentCourt } from 'german-courts';
 
-competentCourt('hamburg', '20144').then(r => console.log(JSON.stringify(r, null, 2)));
-````
-or in js ;)
-````javascript
-const { competentCourt } = require('german-courts');
-
-competentCourt('hamburg', '20144').then(r => console.log(JSON.stringify(r, null, 2)));
+competentCourt('hamburg', '20095').then(r => console.log(JSON.stringify(r, null, 2)));
 ````
 
 which will output
 ````json
 [
   {
-    "typ": "Amtsgericht",
-    "bezeichnung": "Amtsgericht Hamburg",
-    "gerichtstyp": "Amtsgericht",
-    "fachgericht": false,
-    "zusatz": "",
-    "anschrift": {
-      "Lieferanschrift": {
-        "all": "",
-        "PLZ": "",
-        "Ort": "",
-        "Adresse": ""
+    "selektion": "Altländer Straße alle Hausnummern von 001 bis 999",
+    "institutionen": [
+      {
+        "type": "Amtsgericht",
+        "name": "Amtsgericht Hamburg-St.Georg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Lübeckertordamm 4",
+            "20099 Hamburg"
+          ],
+          "postanschrift": [
+            "Postfach 10 03 21",
+            "20002 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.justiz.hamburg.de/ag-stgeorg/",
+          "Telefon": "040 428 28-0",
+          "Fax": "040 42843-7219",
+          "XJustizId": "K1108"
+        }
       },
-      "Postanschrift": {
-        "all": "",
-        "PLZ": "",
-        "Ort": "",
-        "Postfach": ""
+      {
+        "type": "Landgericht",
+        "name": "Landgericht Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Sievekingplatz 1",
+            "20355 Hamburg"
+          ],
+          "postanschrift": [
+            "20348 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.justiz.hamburg.de/gerichte/landgericht-hamburg/",
+          "Telefon": "040 428 28-0",
+          "Fax": "040 428 43-4318, -4319",
+          "EMail": "poststelle@lg.justiz.hamburg.de",
+          "XJustizId": "K1100"
+        }
+      },
+      {
+        "type": "Staatsanwaltschaft",
+        "name": "Staatsanwaltschaft Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Gorch-Fock-Wall 15",
+            "20355 Hamburg"
+          ],
+          "postanschrift": [
+            "Postfach 30 52 61",
+            "20316 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.staatsanwaltschaft.hamburg.de",
+          "Telefon": "040 42828-0",
+          "Fax": "040 42798-1002",
+          "EMail": "Poststelle-Staatsanwaltschaft@sta.justiz.hamburg.de",
+          "XJustizId": "K1100S"
+        }
+      },
+      {
+        "type": "Oberlandesgericht",
+        "name": "Hanseatisches Oberlandesgericht ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Sievekingplatz 2",
+            "20355 Hamburg"
+          ],
+          "postanschrift": [
+            "20348 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.oberlandesgericht.hamburg.de",
+          "Telefon": "040 428 28-0",
+          "Fax": "040 42843-4097",
+          "EMail": "poststelle@olg.justiz.hamburg.de",
+          "XJustizId": "K1000"
+        }
+      },
+      {
+        "type": "Generalstaatsanwaltschaft",
+        "name": "Generalstaatsanwaltschaft Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Gorch-Fock-Wall 15",
+            "20355 Hamburg"
+          ],
+          "postanschrift": [
+            "Postfach 30 52 61",
+            "20316 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.justiz.hamburg.de/gensta-startseite",
+          "Telefon": "040 42843-1710, -1711",
+          "Fax": "040 42798-1900",
+          "EMail": "generalstaatsanwaltschaft-hamburg@sta.justiz.hamburg.de",
+          "XJustizId": "K1000S"
+        }
+      },
+      {
+        "type": "Arbeitsgericht",
+        "name": "Arbeitsgericht Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Osterbekstraße 96",
+            "22083 Hamburg"
+          ],
+          "postanschrift": [
+            "Postfach 76 07 20",
+            "22057 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.arbeitsgericht.hamburg.de",
+          "Telefon": "040 42863-5665",
+          "Fax": "040 4279-62804",
+          "EMail": "poststelle@arbg.justiz.hamburg.de",
+          "XJustizId": "K6055"
+        }
+      },
+      {
+        "type": "Finanzgericht",
+        "name": "Finanzgericht Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Lübeckertordamm 4",
+            "20099 Hamburg"
+          ],
+          "postanschrift": [
+            "Lübeckertordamm 4",
+            "20099 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.finanzgericht.hamburg.de",
+          "Telefon": "040 42828-0",
+          "Fax": "040 427982-777",
+          "EMail": "poststelle@fg.justiz.hamburg.de",
+          "XJustizId": "K6079"
+        }
+      },
+      {
+        "type": "Sozialgericht",
+        "name": "Sozialgericht Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Dammtorstraße 7",
+            "20354 Hamburg"
+          ],
+          "postanschrift": [
+            "Dammtorstraße 7",
+            "20354 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.sozialgericht.hamburg.de",
+          "Telefon": "040 42828-0",
+          "Fax": "040 427-3-10232",
+          "EMail": "poststelle@lsg.justiz.hamburg.de",
+          "XJustizId": "K6083"
+        }
+      },
+      {
+        "type": "Verwaltungsgericht",
+        "name": "Verwaltungsgericht Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Lübeckertordamm 4",
+            "20099 Hamburg"
+          ],
+          "postanschrift": [
+            "Lübeckertordamm 4",
+            "20099 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.verwaltungsgericht.hamburg.de",
+          "Telefon": "040 42828-0",
+          "Fax": "040 42843-7219",
+          "EMail": "poststelle@vg.justiz.hamburg.de",
+          "XJustizId": "K6052"
+        }
       }
-    },
-    "kontakt": {
-      "Telefon": "040 428 28-0",
-      "Fax": "040 42843-4318",
-      "URL": "",
-      "EMail": "",
-      "XJustizId": "K1101Elektronischer"
-    }
+    ]
   },
   {
-    "typ": "Landgericht",
-    "bezeichnung": "Landgericht Hamburg Kammer für Handelssachen ist eingerichtet.",
-    "gerichtstyp": "Landgericht",
-    "fachgericht": false,
-    "zusatz": "",
-    "anschrift": {
-      "Lieferanschrift": {
-        "all": "",
-        "PLZ": "",
-        "Ort": "",
-        "Adresse": ""
+    "selektion": "Klosterwall ungerade Hausnummern von 001 bis 023",
+    "institutionen": [
+      {
+        "type": "Amtsgericht",
+        "name": "Amtsgericht Hamburg-St.Georg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Lübeckertordamm 4",
+            "20099 Hamburg"
+          ],
+          "postanschrift": [
+            "Postfach 10 03 21",
+            "20002 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.justiz.hamburg.de/ag-stgeorg/",
+          "Telefon": "040 428 28-0",
+          "Fax": "040 42843-7219",
+          "XJustizId": "K1108"
+        }
       },
-      "Postanschrift": {
-        "all": "",
-        "PLZ": "20348",
-        "Ort": "Hamburg",
-        "Postfach": ""
+      {
+        "type": "Landgericht",
+        "name": "Landgericht Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Sievekingplatz 1",
+            "20355 Hamburg"
+          ],
+          "postanschrift": [
+            "20348 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.justiz.hamburg.de/gerichte/landgericht-hamburg/",
+          "Telefon": "040 428 28-0",
+          "Fax": "040 428 43-4318, -4319",
+          "EMail": "poststelle@lg.justiz.hamburg.de",
+          "XJustizId": "K1100"
+        }
+      },
+      {
+        "type": "Staatsanwaltschaft",
+        "name": "Staatsanwaltschaft Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Gorch-Fock-Wall 15",
+            "20355 Hamburg"
+          ],
+          "postanschrift": [
+            "Postfach 30 52 61",
+            "20316 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.staatsanwaltschaft.hamburg.de",
+          "Telefon": "040 42828-0",
+          "Fax": "040 42798-1002",
+          "EMail": "Poststelle-Staatsanwaltschaft@sta.justiz.hamburg.de",
+          "XJustizId": "K1100S"
+        }
+      },
+      {
+        "type": "Oberlandesgericht",
+        "name": "Hanseatisches Oberlandesgericht ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Sievekingplatz 2",
+            "20355 Hamburg"
+          ],
+          "postanschrift": [
+            "20348 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.oberlandesgericht.hamburg.de",
+          "Telefon": "040 428 28-0",
+          "Fax": "040 42843-4097",
+          "EMail": "poststelle@olg.justiz.hamburg.de",
+          "XJustizId": "K1000"
+        }
+      },
+      {
+        "type": "Generalstaatsanwaltschaft",
+        "name": "Generalstaatsanwaltschaft Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Gorch-Fock-Wall 15",
+            "20355 Hamburg"
+          ],
+          "postanschrift": [
+            "Postfach 30 52 61",
+            "20316 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.justiz.hamburg.de/gensta-startseite",
+          "Telefon": "040 42843-1710, -1711",
+          "Fax": "040 42798-1900",
+          "EMail": "generalstaatsanwaltschaft-hamburg@sta.justiz.hamburg.de",
+          "XJustizId": "K1000S"
+        }
+      },
+      {
+        "type": "Arbeitsgericht",
+        "name": "Arbeitsgericht Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Osterbekstraße 96",
+            "22083 Hamburg"
+          ],
+          "postanschrift": [
+            "Postfach 76 07 20",
+            "22057 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.arbeitsgericht.hamburg.de",
+          "Telefon": "040 42863-5665",
+          "Fax": "040 4279-62804",
+          "EMail": "poststelle@arbg.justiz.hamburg.de",
+          "XJustizId": "K6055"
+        }
+      },
+      {
+        "type": "Finanzgericht",
+        "name": "Finanzgericht Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Lübeckertordamm 4",
+            "20099 Hamburg"
+          ],
+          "postanschrift": [
+            "Lübeckertordamm 4",
+            "20099 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.finanzgericht.hamburg.de",
+          "Telefon": "040 42828-0",
+          "Fax": "040 427982-777",
+          "EMail": "poststelle@fg.justiz.hamburg.de",
+          "XJustizId": "K6079"
+        }
+      },
+      {
+        "type": "Sozialgericht",
+        "name": "Sozialgericht Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Dammtorstraße 7",
+            "20354 Hamburg"
+          ],
+          "postanschrift": [
+            "Dammtorstraße 7",
+            "20354 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.sozialgericht.hamburg.de",
+          "Telefon": "040 42828-0",
+          "Fax": "040 427-3-10232",
+          "EMail": "poststelle@lsg.justiz.hamburg.de",
+          "XJustizId": "K6083"
+        }
+      },
+      {
+        "type": "Verwaltungsgericht",
+        "name": "Verwaltungsgericht Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Lübeckertordamm 4",
+            "20099 Hamburg"
+          ],
+          "postanschrift": [
+            "Lübeckertordamm 4",
+            "20099 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.verwaltungsgericht.hamburg.de",
+          "Telefon": "040 42828-0",
+          "Fax": "040 42843-7219",
+          "EMail": "poststelle@vg.justiz.hamburg.de",
+          "XJustizId": "K6052"
+        }
       }
-    },
-    "kontakt": {
-      "Telefon": "040 428 28-0",
-      "Fax": "040 428 43-4318",
-      "URL": "",
-      "EMail": "",
-      "XJustizId": "K1100Elektronischer"
-    }
+    ]
   },
   {
-    "typ": "Staatsanwaltschaft",
-    "bezeichnung": "Staatsanwaltschaft Hamburg",
-    "gerichtstyp": "Staatsanwaltschaft",
-    "fachgericht": false,
-    "zusatz": "",
-    "anschrift": {
-      "Lieferanschrift": {
-        "all": "",
-        "PLZ": "",
-        "Ort": "",
-        "Adresse": ""
+    "selektion": "Steintorwall alle Hausnummern von 018 bis 024",
+    "institutionen": [
+      {
+        "type": "Amtsgericht",
+        "name": "Amtsgericht Hamburg-St.Georg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Lübeckertordamm 4",
+            "20099 Hamburg"
+          ],
+          "postanschrift": [
+            "Postfach 10 03 21",
+            "20002 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.justiz.hamburg.de/ag-stgeorg/",
+          "Telefon": "040 428 28-0",
+          "Fax": "040 42843-7219",
+          "XJustizId": "K1108"
+        }
       },
-      "Postanschrift": {
-        "all": "",
-        "PLZ": "",
-        "Ort": "",
-        "Postfach": ""
+      {
+        "type": "Landgericht",
+        "name": "Landgericht Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Sievekingplatz 1",
+            "20355 Hamburg"
+          ],
+          "postanschrift": [
+            "20348 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.justiz.hamburg.de/gerichte/landgericht-hamburg/",
+          "Telefon": "040 428 28-0",
+          "Fax": "040 428 43-4318, -4319",
+          "EMail": "poststelle@lg.justiz.hamburg.de",
+          "XJustizId": "K1100"
+        }
+      },
+      {
+        "type": "Staatsanwaltschaft",
+        "name": "Staatsanwaltschaft Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Gorch-Fock-Wall 15",
+            "20355 Hamburg"
+          ],
+          "postanschrift": [
+            "Postfach 30 52 61",
+            "20316 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.staatsanwaltschaft.hamburg.de",
+          "Telefon": "040 42828-0",
+          "Fax": "040 42798-1002",
+          "EMail": "Poststelle-Staatsanwaltschaft@sta.justiz.hamburg.de",
+          "XJustizId": "K1100S"
+        }
+      },
+      {
+        "type": "Oberlandesgericht",
+        "name": "Hanseatisches Oberlandesgericht ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Sievekingplatz 2",
+            "20355 Hamburg"
+          ],
+          "postanschrift": [
+            "20348 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.oberlandesgericht.hamburg.de",
+          "Telefon": "040 428 28-0",
+          "Fax": "040 42843-4097",
+          "EMail": "poststelle@olg.justiz.hamburg.de",
+          "XJustizId": "K1000"
+        }
+      },
+      {
+        "type": "Generalstaatsanwaltschaft",
+        "name": "Generalstaatsanwaltschaft Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Gorch-Fock-Wall 15",
+            "20355 Hamburg"
+          ],
+          "postanschrift": [
+            "Postfach 30 52 61",
+            "20316 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.justiz.hamburg.de/gensta-startseite",
+          "Telefon": "040 42843-1710, -1711",
+          "Fax": "040 42798-1900",
+          "EMail": "generalstaatsanwaltschaft-hamburg@sta.justiz.hamburg.de",
+          "XJustizId": "K1000S"
+        }
+      },
+      {
+        "type": "Arbeitsgericht",
+        "name": "Arbeitsgericht Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Osterbekstraße 96",
+            "22083 Hamburg"
+          ],
+          "postanschrift": [
+            "Postfach 76 07 20",
+            "22057 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.arbeitsgericht.hamburg.de",
+          "Telefon": "040 42863-5665",
+          "Fax": "040 4279-62804",
+          "EMail": "poststelle@arbg.justiz.hamburg.de",
+          "XJustizId": "K6055"
+        }
+      },
+      {
+        "type": "Finanzgericht",
+        "name": "Finanzgericht Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Lübeckertordamm 4",
+            "20099 Hamburg"
+          ],
+          "postanschrift": [
+            "Lübeckertordamm 4",
+            "20099 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.finanzgericht.hamburg.de",
+          "Telefon": "040 42828-0",
+          "Fax": "040 427982-777",
+          "EMail": "poststelle@fg.justiz.hamburg.de",
+          "XJustizId": "K6079"
+        }
+      },
+      {
+        "type": "Sozialgericht",
+        "name": "Sozialgericht Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Dammtorstraße 7",
+            "20354 Hamburg"
+          ],
+          "postanschrift": [
+            "Dammtorstraße 7",
+            "20354 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.sozialgericht.hamburg.de",
+          "Telefon": "040 42828-0",
+          "Fax": "040 427-3-10232",
+          "EMail": "poststelle@lsg.justiz.hamburg.de",
+          "XJustizId": "K6083"
+        }
+      },
+      {
+        "type": "Verwaltungsgericht",
+        "name": "Verwaltungsgericht Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Lübeckertordamm 4",
+            "20099 Hamburg"
+          ],
+          "postanschrift": [
+            "Lübeckertordamm 4",
+            "20099 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.verwaltungsgericht.hamburg.de",
+          "Telefon": "040 42828-0",
+          "Fax": "040 42843-7219",
+          "EMail": "poststelle@vg.justiz.hamburg.de",
+          "XJustizId": "K6052"
+        }
       }
-    },
-    "kontakt": {
-      "Telefon": "040 42828-0",
-      "Fax": "040 42798-1002",
-      "URL": "",
-      "EMail": "",
-      "XJustizId": "K1100SDer"
-    }
+    ]
   },
   {
-    "typ": "Oberlandesgericht",
-    "bezeichnung": "Hanseatisches Oberlandesgericht",
-    "gerichtstyp": "Oberlandesgericht",
-    "fachgericht": false,
-    "zusatz": "",
-    "anschrift": {
-      "Lieferanschrift": {
-        "all": "",
-        "PLZ": "",
-        "Ort": "",
-        "Adresse": ""
+    "selektion": "Andere",
+    "institutionen": [
+      {
+        "type": "Amtsgericht",
+        "name": "Amtsgericht Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Sievekingplatz 1",
+            "20355 Hamburg"
+          ],
+          "postanschrift": [
+            "Postfach 30 01 21",
+            "20348 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.amtsgericht.hamburg.de",
+          "Telefon": "040 428 28-0",
+          "Fax": "040 42843-4318, -4319",
+          "XJustizId": "K1101"
+        }
       },
-      "Postanschrift": {
-        "all": "",
-        "PLZ": "20348",
-        "Ort": "Hamburg",
-        "Postfach": ""
-      }
-    },
-    "kontakt": {
-      "Telefon": "040 428 28-0",
-      "Fax": "040 42843-4097",
-      "URL": "",
-      "EMail": "",
-      "XJustizId": "K1000Elektronischer"
-    }
-  },
-  {
-    "typ": "Generalstaatsanwaltschaft",
-    "bezeichnung": "Generalstaatsanwaltschaft Hamburg",
-    "gerichtstyp": "Generalstaatsanwaltschaft",
-    "fachgericht": false,
-    "zusatz": "",
-    "anschrift": {
-      "Lieferanschrift": {
-        "all": "",
-        "PLZ": "",
-        "Ort": "",
-        "Adresse": ""
+      {
+        "type": "Landgericht",
+        "name": "Landgericht Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Sievekingplatz 1",
+            "20355 Hamburg"
+          ],
+          "postanschrift": [
+            "20348 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.justiz.hamburg.de/gerichte/landgericht-hamburg/",
+          "Telefon": "040 428 28-0",
+          "Fax": "040 428 43-4318, -4319",
+          "EMail": "poststelle@lg.justiz.hamburg.de",
+          "XJustizId": "K1100"
+        }
       },
-      "Postanschrift": {
-        "all": "",
-        "PLZ": "",
-        "Ort": "",
-        "Postfach": ""
-      }
-    },
-    "kontakt": {
-      "Telefon": "040 42843-1710",
-      "Fax": "040 42798-1900",
-      "URL": "",
-      "EMail": "",
-      "XJustizId": "K1000SDer"
-    }
-  },
-  {
-    "typ": "Arbeitsgericht",
-    "bezeichnung": "Arbeitsgericht Hamburg  Rechtszug",
-    "gerichtstyp": "Arbeitsgericht",
-    "fachgericht": true,
-    "zusatz": "",
-    "anschrift": {
-      "Lieferanschrift": {
-        "all": "",
-        "PLZ": "",
-        "Ort": "",
-        "Adresse": ""
+      {
+        "type": "Staatsanwaltschaft",
+        "name": "Staatsanwaltschaft Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Gorch-Fock-Wall 15",
+            "20355 Hamburg"
+          ],
+          "postanschrift": [
+            "Postfach 30 52 61",
+            "20316 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.staatsanwaltschaft.hamburg.de",
+          "Telefon": "040 42828-0",
+          "Fax": "040 42798-1002",
+          "EMail": "Poststelle-Staatsanwaltschaft@sta.justiz.hamburg.de",
+          "XJustizId": "K1100S"
+        }
       },
-      "Postanschrift": {
-        "all": "",
-        "PLZ": "",
-        "Ort": "",
-        "Postfach": ""
-      }
-    },
-    "kontakt": {
-      "Telefon": "040 42863-5665",
-      "Fax": "040 4279-62804",
-      "URL": "",
-      "EMail": "",
-      "XJustizId": "K6055Der"
-    }
-  },
-  {
-    "typ": "Finanzgericht",
-    "bezeichnung": "Finanzgericht Hamburg  Rechtszug",
-    "gerichtstyp": "Finanzgericht",
-    "fachgericht": true,
-    "zusatz": "",
-    "anschrift": {
-      "Lieferanschrift": {
-        "all": "",
-        "PLZ": "",
-        "Ort": "",
-        "Adresse": ""
+      {
+        "type": "Oberlandesgericht",
+        "name": "Hanseatisches Oberlandesgericht ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Sievekingplatz 2",
+            "20355 Hamburg"
+          ],
+          "postanschrift": [
+            "20348 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.oberlandesgericht.hamburg.de",
+          "Telefon": "040 428 28-0",
+          "Fax": "040 42843-4097",
+          "EMail": "poststelle@olg.justiz.hamburg.de",
+          "XJustizId": "K1000"
+        }
       },
-      "Postanschrift": {
-        "all": "",
-        "PLZ": "",
-        "Ort": "",
-        "Postfach": ""
-      }
-    },
-    "kontakt": {
-      "Telefon": "040 42828-0",
-      "Fax": "040 427982-777",
-      "URL": "",
-      "EMail": "",
-      "XJustizId": "K6079Der"
-    }
-  },
-  {
-    "typ": "Sozialgericht",
-    "bezeichnung": "Sozialgericht Hamburg  Rechtszug",
-    "gerichtstyp": "Sozialgericht",
-    "fachgericht": true,
-    "zusatz": "",
-    "anschrift": {
-      "Lieferanschrift": {
-        "all": "",
-        "PLZ": "",
-        "Ort": "",
-        "Adresse": ""
+      {
+        "type": "Generalstaatsanwaltschaft",
+        "name": "Generalstaatsanwaltschaft Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Gorch-Fock-Wall 15",
+            "20355 Hamburg"
+          ],
+          "postanschrift": [
+            "Postfach 30 52 61",
+            "20316 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.justiz.hamburg.de/gensta-startseite",
+          "Telefon": "040 42843-1710, -1711",
+          "Fax": "040 42798-1900",
+          "EMail": "generalstaatsanwaltschaft-hamburg@sta.justiz.hamburg.de",
+          "XJustizId": "K1000S"
+        }
       },
-      "Postanschrift": {
-        "all": "",
-        "PLZ": "",
-        "Ort": "",
-        "Postfach": ""
-      }
-    },
-    "kontakt": {
-      "Telefon": "040 42828-0",
-      "Fax": "040 427-3-10232",
-      "URL": "",
-      "EMail": "",
-      "XJustizId": "K6083Der"
-    }
-  },
-  {
-    "typ": "Verwaltungsgericht",
-    "bezeichnung": "Verwaltungsgericht Hamburg  Rechtszug",
-    "gerichtstyp": "Verwaltungsgericht",
-    "fachgericht": true,
-    "zusatz": "",
-    "anschrift": {
-      "Lieferanschrift": {
-        "all": "",
-        "PLZ": "",
-        "Ort": "",
-        "Adresse": ""
+      {
+        "type": "Arbeitsgericht",
+        "name": "Arbeitsgericht Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Osterbekstraße 96",
+            "22083 Hamburg"
+          ],
+          "postanschrift": [
+            "Postfach 76 07 20",
+            "22057 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.arbeitsgericht.hamburg.de",
+          "Telefon": "040 42863-5665",
+          "Fax": "040 4279-62804",
+          "EMail": "poststelle@arbg.justiz.hamburg.de",
+          "XJustizId": "K6055"
+        }
       },
-      "Postanschrift": {
-        "all": "",
-        "PLZ": "",
-        "Ort": "",
-        "Postfach": ""
+      {
+        "type": "Finanzgericht",
+        "name": "Finanzgericht Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Lübeckertordamm 4",
+            "20099 Hamburg"
+          ],
+          "postanschrift": [
+            "Lübeckertordamm 4",
+            "20099 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.finanzgericht.hamburg.de",
+          "Telefon": "040 42828-0",
+          "Fax": "040 427982-777",
+          "EMail": "poststelle@fg.justiz.hamburg.de",
+          "XJustizId": "K6079"
+        }
+      },
+      {
+        "type": "Sozialgericht",
+        "name": "Sozialgericht Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Dammtorstraße 7",
+            "20354 Hamburg"
+          ],
+          "postanschrift": [
+            "Dammtorstraße 7",
+            "20354 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.sozialgericht.hamburg.de",
+          "Telefon": "040 42828-0",
+          "Fax": "040 427-3-10232",
+          "EMail": "poststelle@lsg.justiz.hamburg.de",
+          "XJustizId": "K6083"
+        }
+      },
+      {
+        "type": "Verwaltungsgericht",
+        "name": "Verwaltungsgericht Hamburg ",
+        "anschriften": {
+          "lieferanschrift": [
+            "Lübeckertordamm 4",
+            "20099 Hamburg"
+          ],
+          "postanschrift": [
+            "Lübeckertordamm 4",
+            "20099 Hamburg"
+          ]
+        },
+        "kontakt": {
+          "URL": "http://www.verwaltungsgericht.hamburg.de",
+          "Telefon": "040 42828-0",
+          "Fax": "040 42843-7219",
+          "EMail": "poststelle@vg.justiz.hamburg.de",
+          "XJustizId": "K6052"
+        }
       }
-    },
-    "kontakt": {
-      "Telefon": "040 42828-0",
-      "Fax": "040 42843-7219",
-      "URL": "",
-      "EMail": "",
-      "XJustizId": "K6052Der"
-    }
+    ]
   }
 ]
+
 ````
 
 
