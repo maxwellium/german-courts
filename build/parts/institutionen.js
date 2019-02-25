@@ -11,7 +11,7 @@ function parseInstitutionen($) {
         }
         institutionen.push({
             type: e.attribs.title,
-            name: $('strong', tds[0]).text(),
+            name: $('strong', tds[0]).text().trim(),
             anschriften: anschriften_1.getAnschriften($, tds[1]),
             kontakt: kontakt_1.getKontakt($, tds[2])
         });

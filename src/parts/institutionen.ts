@@ -22,7 +22,7 @@ export function parseInstitutionen( $: CheerioStatic ) {
 
     institutionen.push( {
       type: e.attribs.title,
-      name: $( 'strong', tds[ 0 ] ).text(),
+      name: $( 'strong', tds[ 0 ] ).text().trim(),
       anschriften: getAnschriften( $, tds[ 1 ] ),
       kontakt: getKontakt( $, tds[ 2 ] )
     } );

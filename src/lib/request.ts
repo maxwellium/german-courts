@@ -31,7 +31,7 @@ export function request( url: string | RequestOptions | URL ): Promise<string> {
 
       if ( statusCode !== 200 ) {
         response.resume();
-        reject( `Request Failed.\n Status Code: ${ statusCode }` );
+        reject( `Request Failed.\n Status Code: ${ statusCode } ${ url }` );
         return;
       }
 
